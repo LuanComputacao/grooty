@@ -10,6 +10,7 @@ namespace Controllers;
 
 use Kernel\mvcs\Controller;
 use Kernel\mvcs\View;
+use Kernel\managers\DebugManager;
 use Services\WelcomeService;
 
 class SupportController extends Controller
@@ -21,7 +22,6 @@ class SupportController extends Controller
         $token = $_POST['token'] ?? '';
 
         $welcomeService = WelcomeService::getWelcomeService($origin, $token);
-
         header("Access-Control-Allow-Origin: *");
         View::responseJson([
             'app' => 'faq',

@@ -12,7 +12,7 @@ class HomeController extends Controller
 
     function get()
     {
-        $client = ClientModel::objects()->getByCtName('Luan Santos');
+        $client = ClientModel::objects()->getByCtName('Grooty');
 
         $args = [
             'client' => $client,
