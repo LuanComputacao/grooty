@@ -1,0 +1,57 @@
+version: "3"
+
+services:
+    grooty-web:
+        build:
+            context: ./
+            dockerfile: nginx.Dockerfile
+        ports:
+            - "8082:80"
+        volumes:
+            - ./:/code
+            - ./grooty.nginx.conf:/etc/nginx/conf.d/site.conf
+            - templates-grooty:/tmp/twig/grooty
+        links:
+            - grooty-php
+        networks:
+            - grooty-network
+        depends_on:
+            - grooty-mysql
+            - grooty-php
+
+    grooty-php:
+        build:
+            context: ./
+            dockerfile: php-fpm.Dockerfile
+        volumes:
+            - ./:/code
+            - templates-grooty:/tmp/twig/grooty
+        command: /bin/sh -c "cd /code && composer install && php-fpm"
+        networks:
+            - grooty-network
+        depends_on:
+            - grooty-mysql
+
+    grooty-mysql:
+        build:
+            context: ./
+            dockerfile: mysql.Dockerfile
+        volumes:
+            - mysql-grooty:/var/lib/mysql
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=shaaman
+            - MYSQL_DATABASE=grooty
+            - MYSQL_USER=grooty
+            - MYSQL_PASSWORD=grooty
+        networks:
+            - grooty-network
+
+volumes:
+    mysql-grooty:
+    templates-grooty:
+
+networks:
+    grooty-network:
+        driver: bridge

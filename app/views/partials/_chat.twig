@@ -1,0 +1,30 @@
+<div class="col-xs-12 ent-chat">
+    <div class="row col-xs-12">
+        {{ clerk }}
+    </div>
+
+    <div class="row ">
+        <div class="col-xs-12 ">
+            <div class=" js-chat-history ent-chat__chat-history">
+                {% for message in messages %}
+                    {% include 'partials/_message.twig' with {'user': message.user_initials, 'text': message.message } %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <textarea class="js-message-editor form-control" name="client-message" id="js-client-message"
+                      rows="2"></textarea>
+            <div class="js-send-button input-group-addon  ent-chat__send-button">
+                <div class="glyphicon glyphicon-send"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="js-message-template" class=" ent-chat__message-template">
+    {% include 'partials/_message.twig' %}
+</div>

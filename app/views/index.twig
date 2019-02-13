@@ -1,0 +1,44 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <h1>Just show a FAQ</h1>
+    <div class="row">
+        <div class="col">
+
+            <div class="row">
+                <a class="btn btn-primary" href="/manager/register-client">Register and Manage Client</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="div">
+            <div class="row"><h2>Test Client</h2></div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <strong>CtName: </strong> {{ client.getCtId }}
+                    </div>
+                    <div class="row">
+                        <strong>CtName: </strong> {{ client.getCtName }}
+                    </div>
+                    <div class="row">
+                        <strong>CtSelfServUrl: </strong> {{ client.getCtSelfServUrl }}
+                    </div>
+                    <div class="row">
+                        <strong>CtSocket: </strong> {{ client.getCtSocket }}
+                    </div>
+                    <div class="row">
+                        <strong>CtTokenApi: </strong> {{ client.getCtTokenApi }}
+                    </div>
+                    <div class="row">
+                        <strong>CtSiteUrl: </strong> {{ client.getCtSiteUrl }}
+                    </div>
+                    <div class="row">
+                        <strong>CtEmail: </strong> {{ client.getCtEmail }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="chat"></div>
+{% endblock %}

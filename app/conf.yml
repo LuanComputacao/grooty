@@ -1,0 +1,19 @@
+url: http://localhost:8082
+
+env: dev
+
+# Project structure
+views_folder: views
+cache_folder: /tmp/twig/grooty
+router_file: routes.php
+
+# Database info
+db_ms: mysql
+db_host: grooty-mysql
+db_name: grooty
+db_user: grooty
+db_pwd: grooty
+db_limit: 20
+
+# Errors
+error_report_level: 1

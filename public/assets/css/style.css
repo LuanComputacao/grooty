@@ -1,0 +1,18 @@
+#chat{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 600px;
+    overflow: scroll;
+    z-index: 9999;
+}
+
+.jqte-editor {
+    display:block;
+    margin:0 0 10px;
+    padding:6px;
+    width:95%;
+    background:#FFF;
+    border:#AAA 1px solid;
+    font-size:13px;
+}

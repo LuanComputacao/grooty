@@ -1,0 +1,32 @@
+.ent-chat {
+    background-color: #f5f5f5;
+    max-height: 300px;
+}
+
+.ent-chat__link {
+    color: #337ab7;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.ent-chat__link:hover {
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.ent-chat__chat-history {
+    max-height: 150px;
+    overflow: scroll;
+    border: solid 1px #c8c8c8;
+    padding: 15px 15px;
+    margin-bottom: 5px;
+}
+
+.ent-chat__send-button:hover {
+    cursor: pointer;
+}
+
+.ent-chat__message-template {
+    display: none;
+}
