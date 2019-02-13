@@ -96,3 +96,25 @@ $('#ent-chat-faq').on('faq-loaded', function(){
 ## Where is an example?
 
 The project [Shaaman](https://github.com/anjelim/shaaman) is an complete example of the project running.
+
+## Diagrams
+
+### How it works over the network
+
+![Network Diagram](/docs/network_diagram.png)
+
+### Use Cases
+#### Thing that the a user of a Client Site can do
+![UC Client](/docs/UC_cliente.png)
+
+#### Thing Client Site can do over the network and what the Grooty Service Does
+![UC Client Site and Grooty Service](/docs/UC_grooty_service__client_site.png)
+
+#### Thing that a manager can do in the Grooty Service
+![UC Client Manager](/docs/UC_client_manager.png)
+
+### MER
+![Entity-relationship Diagram](/docs/MER.png)
+
+### DER
+![Entity-relationship Diagram](/docs/DER.png)
