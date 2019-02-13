@@ -118,3 +118,28 @@ VALUES ( @client_id, 'Como acompanhar o seu pedido?');
 SET @question_2 = (SELECT id FROM faq_question ORDER BY id DESC LIMIT 1);
 INSERT INTO faq_answer (faq_question_id, answer)
 VALUES (@question_2, 'Voc&#xEA; consegue acompanhar todos os status pela sua &#xE1;rea de cliente');
+
+
+INSERT INTO client (name, self_serv_url, socket, token_api, site_url, email, welcome_page)
+VALUES ('Grooty', 'http://localhost:8082', 'http://localhost:8083', 'd41d8cd98f00b204e9800998ecf8427e',
+        'http://localhost:8082', 'luansantos@grooty.com',
+        'Ol&#xE1;!&#x3C;p&#x3E;Se voc&#xEA; tiver alguma d&#xFA;vida sobre &#x22;&#x3C;i&#x3E;Como comprar&#x3C;/i&#x3E;&#x22;, &#x22;Como acompanhar o seu pedido&#x22;, &#x22;Como ver o seu hist&#xF3;rico de compras&#x22;, etc. Acesse as perguntas mais frequentes &#x3C;a class=&#x22;js-request-faq&#x22; href=&#x22;http://localhost:8082/faq-question&#x22;&#x3E;clicando aqui&#x3C;/a&#x3E;&#x3C;/p&#x3E;');
+
+SET @client_id = (SELECT id FROM client ORDER BY id DESC LIMIT 1);
+
+INSERT INTO faq_question (client_id, question)
+VALUES ( @client_id, 'Question 1');
+
+SET @question_1 = (SELECT id FROM faq_question ORDER BY id DESC LIMIT 1);
+
+INSERT INTO faq_answer (faq_question_id, answer)
+VALUES (@question_1, 'Answer 1'),
+       (@question_1, 'Answer 2');
+
+INSERT INTO faq_question (client_id, question)
+VALUES ( @client_id, 'Question 2');
+
+SET @question_2 = (SELECT id FROM faq_question ORDER BY id DESC LIMIT 1);
+INSERT INTO faq_answer (faq_question_id, answer)
+VALUES (@question_2, 'Answer 1');
+
