@@ -1,5 +1,9 @@
 # Grooty
 
+## First of all, an example to run
+
+The project [Shaaman](https://github.com/anjelim/shaaman) is an complete example of the project running.
+
 ## What is?
 
 Is a service that gives a welcome support menu and a FAQ. Both is served using JSON. 
@@ -92,10 +96,6 @@ $('#ent-chat-faq').on('faq-loaded', function(){
     // Your code here
 });
 ```
-
-## Where is an example?
-
-The project [Shaaman](https://github.com/anjelim/shaaman) is an complete example of the project running.
 
 ## Diagrams
 
