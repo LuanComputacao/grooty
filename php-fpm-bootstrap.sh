@@ -1,5 +1,5 @@
 #!/bin/sh
-docker-php-ext-install pdo_mysql ext_http
+docker-php-ext-install pdo_mysql
 
 echo "installing composer"
 EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
