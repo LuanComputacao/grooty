@@ -10,6 +10,19 @@ Is a service that gives a welcome support menu and a FAQ. Both is served using J
 
 ## How?
 
+### Starting the system
+
+#### Running using Docker Compose
+* to run the docker containers execute
+```
+docker-compose up
+```
+" to initiate the database execute
+```
+docker-compose exec grooty-mysql /bin/bash -c 'mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" < /scripts/init_db.sql'
+```
+This command will run the script `/scripts/db/init_db.sql`
+
 ### Registering a client
 
 #### Client registration
