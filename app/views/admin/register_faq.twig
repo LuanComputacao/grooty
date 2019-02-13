@@ -1,0 +1,81 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="/assets/vendors/jquery-te-1.4.0/jquery-te-1.4.0.css"/>
+{% endblock %}
+
+{% block jsfooter %}
+    <script src="/assets/vendors/jquery-te-1.4.0/jquery-te-1.4.0.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary" href="/manager/register-client">Back to clients Page</a>
+        </div>
+    </div>
+
+    <h1>FAQ Register page</h1>
+
+    <h2>Client data:</h2>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <strong>ID:</strong> {{ client.getCtId }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <strong>Name:</strong> {{ client.getCtName }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <strong>Site URL:</strong> {{ client.getCtSiteUrl }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h2>FAQ form</h2>
+
+    <form id="form-register-faq" action="/manager/register-faq" method="post">
+        <input type="hidden" name="client" id="client" value="{{ client.getCtId }}">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <label for="question"> Question</label>
+                <textarea id="question" name="question" class="jqte-editor"></textarea>
+            </div>
+        </div>
+
+        <input class="btn btn-success" type="submit" value="Send">
+    </form>
+
+    <h2>Clients list</h2>
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Cliente Id</th>
+            <th>Question</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>
+                    <a href="/manager/register-answer?client={{ question.client_id }}&question={{ question.id }}">
+                        <strong>{{ question.id|e }}</strong>
+                    </a>
+                </td>
+                <td>{{ question.client_id|e }}</td>
+                <td>{{ question.question|e }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

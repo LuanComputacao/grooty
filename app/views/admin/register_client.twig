@@ -1,0 +1,87 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="/assets/vendors/jquery-te-1.4.0/jquery-te-1.4.0.css"/>
+{% endblock %}
+
+{% block jsfooter %}
+    <script src="/assets/vendors/jquery-te-1.4.0/jquery-te-1.4.0.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary" href="/">Home</a>
+        </div>
+    </div>
+    <h1>Client Register page</h1>
+    <h2>Client form</h2>
+    <form id="form-register-client" action="/manager/register-client" method="post">
+        <div class="input-group">
+            <label for="name">Name</label>
+            <input class="form-control" type="text" id="name">
+        </div>
+        <div class="input-group">
+            <label for="self-serv-url">Self Service Route</label>
+            <input class="form-control" type="text" id="self-serv-url">
+        </div>
+        <div class="input-group">
+            <label for="socket">Socket</label>
+            <input class="form-control" type="text" id="socket">
+        </div>
+        <div class="input-group">
+            <label for="site-url">Site URL</label>
+            <input class="form-control" type="url" id="site-url">
+        </div>
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" id="email">
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <label for="welcome-page"> Welcome Page</label>
+                <textarea id="welcome-page" class="jqte-editor"></textarea>
+            </div>
+        </div>
+        <input class="btn btn-success" type="submit" value="Send">
+    </form>
+
+    <h2>Clients list</h2>
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>self serv url</th>
+            <th>socket</th>
+            <th>token api</th>
+            <th>site url</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>
+                    <a href="/manager/register-faq?client={{ client.id }}">
+                        <strong>{{ client.id|e }}</strong>
+                    </a>
+                </td>
+                <td><strong>{{ client.name|e }}</strong></td>
+                <td>{{ client.self_serv_url|e }}</td>
+                <td>{{ client.socket|e }}</td>
+                <td>{{ client.token_api|e }}</td>
+                <td>{{ client.site_url|e }}</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>Welcome page text:</td>
+                <td colspan="4">
+                    {% if client.welcome_page %} {{ client.printable_welcome_page|raw }} {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

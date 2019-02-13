@@ -1,0 +1,98 @@
+{% extends 'base.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="/assets/vendors/jquery-te-1.4.0/jquery-te-1.4.0.css"/>
+{% endblock %}
+
+{% block jsfooter %}
+    <script src="/assets/vendors/jquery-te-1.4.0/jquery-te-1.4.0.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary" href="/manager/register-faq?client={{ client.getCtId }}">
+                Back to questions Page
+            </a>
+        </div>
+    </div>
+
+    <h1>FAQ Answers Register page</h1>
+
+    <h2>Client data:</h2>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <strong>ID:</strong> {{ client.getCtId }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <strong>Name:</strong> {{ client.getCtName }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <strong>Site URL:</strong> {{ client.getCtSiteUrl }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Question data:</h2>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <strong>ID:</strong> {{ faq.getCtId }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <strong>Question:</strong> {{ faq.getCtQuestion }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h2>Answer form</h2>
+
+    <form id="form-register-answer" action="/manager/register-answer" method="post">
+        <input type="hidden" name="client" id="client" value="{{ client.getCtId }}">
+        <input type="hidden" name="question" id="question" value="{{ faq.getCtId }}">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <label for="question">Answer</label>
+                <textarea id="answer" name="answer" class="jqte-editor"></textarea>
+            </div>
+        </div>
+
+        <input class="btn btn-success" type="submit" value="Send">
+    </form>
+
+    <h2>Clients list</h2>
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Cliente Id</th>
+            <th>Question</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for answer in answers %}
+            <tr>
+                <td>
+                    <strong>{{ answer.id|e }}</strong>
+                </td>
+                <td>{{ answer.faq_question_id|e }}</td>
+                <td>{{ answer.answer|e }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
