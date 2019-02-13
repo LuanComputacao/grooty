@@ -6,7 +6,28 @@ Is a service that gives a welcome support menu and a FAQ. Both is served using J
 
 ## How?
 
-### Installation
+### Registering a client
+
+#### Client registration
+1. In the Home page click in the _Register and Manage Client_ button
+1. Insert the content in the input fields
+1. Click send to save
+
+#### Question registration
+1. In the __Client Register page__ page click in the _id of the client_ on the _Clients list_
+1. This will open the __FAQ Register page__ for the current user
+1. Insert the content in the input fields
+1. Click send to save
+
+
+#### Answers registration
+1. In the __FAQ Register page__ click in the _id of the question_ on the _Questions List_
+1. This will open the __FAQ Answers Register page__ for the question of a client
+1. Insert the content in the input fields
+1. Click send to save
+
+
+### Installation in the client side
 
 #### Retrieving the plugin
 
